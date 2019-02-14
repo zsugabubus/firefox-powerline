@@ -1,0 +1,14 @@
+{
+  "name": "firefox-powerline",
+  "version": "0.1.0",
+  "repository": "https://github.com/zsugabubus/firefox-powerline",
+  "author": "zsugabubus",
+  "scripts": {
+    "build": "./node_modules/.bin/stylus powerline.default.styl",
+    "watch": "./node_modules/.bin/stylus -w powerline.default.styl"
+  },
+  "license": "LGPL-3.0-or-later",
+  "devDependencies": {
+    "stylus": "^0.54.5"
+  }
+}
