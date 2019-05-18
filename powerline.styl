@@ -29,6 +29,7 @@ if !show-popups
 
 #tabbrowser-tabs
 .tabbrowser-arrowscrollbox
+.tabbrowser-tab
   min-height unset !important
 
 if !show-tab-throbber
@@ -129,9 +130,10 @@ if !show-tab-throbber
       counter-increment index
       content counter(index) ':'
 
-if !show-alltabs-button
-  #alltabs-button
-    display none !important
+#alltabs-button
+  > .toolbarbutton-badge-stack
+    > .toolbarbutton-icon
+      fill tab-selected-background
 
 if show-newtab-button
   #new-tab-button
@@ -156,12 +158,18 @@ else
     display none !important
 
 
-#TabsToolbar .toolbarbutton-1
+.toolbarbutton-1
   background none !important
   border-radius 0 !important
 
   > .toolbarbutton-icon
     display none !important
+
+toolbarbutton
+  &:active
+  &:hover
+    > .toolbarbutton-badge-stack
+      background none !important
 
 .tabbrowser-arrowscrollbox
   > .arrowscrollbox-overflow-start-indicator
@@ -179,8 +187,8 @@ else
       color tab-color !important
       display block !important
 
-    &[disabled]
-      display none !important
+    /* &[disabled]
+      display none !important */
 
   > .scrollbutton-up::before
     content scroll-up-label
@@ -195,13 +203,17 @@ else
 .urlbar-input-box
   padding-left 1ch if triangular-theme
 
+#tracking-protection-icon-box
+  display none !important
+
+#stop-reload-button
+  display none !important
+
 #back-button
 #forward-button
 #home-button
 #library-button
-#reload-button
 #sidebar-button
-#stop-button
   > .toolbarbutton-icon
     display none !important
 
@@ -245,6 +257,7 @@ else
 if show-nav-bar
   #nav-bar
     box-shadow none !important
+    min-height unset !important
 
   #nav-bar-overflow-button
     position relative
@@ -305,7 +318,13 @@ else
   padding 1px !important
 
   &[starred]
-    fill starred-color !important
+    fill star-color !important
+
+#downloads-button[attention="success"]
+  > #downloads-indicator-anchor
+    > #downloads-indicator-icon
+    > #downloads-indicator-progress-outer
+      fill downloads-color !important
 
 #statuspanel-label
   background statuslabel-background !important
