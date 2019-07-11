@@ -1,5 +1,7 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul")
 
+@-moz-document url("chrome://browser/content/browser.xhtml") {
+
 /* disable crappy W1nd0w$ buttons in fullscreen mode */
 #window-controls
   display none
@@ -17,6 +19,8 @@ if !show-autocomplete-popups
   #PopupAutoCompleteRichResult
   #PopupSearchAutoComplete
   #PopupAutoComplete
+  /* Since Firefox 68 */
+  #urlbar-results
     display none !important
 
 if !show-popups
@@ -130,6 +134,10 @@ if !show-tab-throbber
       counter-increment index
       content counter(index) ':'
 
+  /*tab.tabbrowser-tab[pinned=true]
+    > .tab-stack::after
+      right 1px*/
+
 #alltabs-button
   > .toolbarbutton-badge-stack
     > .toolbarbutton-icon
@@ -157,10 +165,16 @@ else
   .tabs-newtab-button
     display none !important
 
+.accessibility-indicator
+.private-browsing-indicator
+  width 1em !important
+  height 1em !important
+  margin 0 3px !important
 
 .toolbarbutton-1
   background none !important
   border-radius 0 !important
+  margin 0 !important
 
   > .toolbarbutton-icon
     display none !important
@@ -179,6 +193,7 @@ toolbarbutton
   > .scrollbutton-up
   > .scrollbutton-down
     background tab-background !important
+    margin 0 !important
 
     > .toolbarbutton-icon
       display none !important
@@ -251,6 +266,10 @@ else
 
 .urlbar-icon
 .urlbar-icon-wrapper
+  width 16px !important
+  height 16px !important
+  padding 0 !important
+
   &:not([disabled]):hover
     background none !important
 
@@ -272,22 +291,24 @@ if show-nav-bar
       width 1.2em !important
       height 1em !important
 
-  #urlbar
-    border-radius 0 !important
-    border none !important
-    background none !important
-    box-shadow none !important
-    margin 0 !important
-    min-height unset !important
-
-    .urlbar-go-button
-      display none !important
-
 else
   #nav-bar
     display none !important
 
-/* FIXME Works in style editor. */
+#urlbar
+#searchbar.searchbar-textbox
+  border-radius 0 !important
+  border none !important
+  background none !important
+  box-shadow none !important
+  margin 0 !important
+  min-height unset !important
+
+#urlbar .urlbar-go-button
+#searchbar .search-go-button
+  display none !important
+
+/* FIXME: Works in style editor. */
 .textbox-input::-moz-selection
   background selection-background !important
   color selection-color !important
@@ -329,5 +350,7 @@ else
 #statuspanel-label
   background statuslabel-background !important
   color statuslabel-color !important
+
+}
 
 /* vim:set ts=2 sw=2 et fdm=marker: */
