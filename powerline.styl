@@ -1,4 +1,6 @@
-@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul")
+:root
+  --autocomplete-popup-highlight-color selection-color !important
+  --autocomplete-popup-highlight-background selection-background !important
 
 /* disable crappy W1nd0w$ buttons in fullscreen mode */
 #window-controls
@@ -12,18 +14,6 @@ wizard
 
 .tab-label-container
   mask-image linear-gradient(to left, transparent, black 1em) !important
-
-if !show-autocomplete-popups
-  #PopupAutoCompleteRichResult
-  #PopupSearchAutoComplete
-  #PopupAutoComplete
-  /* Since Firefox 68 */
-  #urlbar-results
-    display none !important
-
-if !show-popups
-  #mainPopupSet
-    display none
 
 .tab-close-button
 .tab-line
@@ -216,7 +206,7 @@ toolbarbutton
 .urlbar-input-box
   padding-left 1ch if triangular-theme
 
-#tracking-protection-icon-box
+#tracking-protection-icon-container
   display none !important
 
 #stop-reload-button
@@ -275,6 +265,7 @@ if show-nav-bar
   #nav-bar
     box-shadow none !important
     min-height unset !important
+    background-color bar-background !important
 
   #nav-bar-overflow-button
     position relative
@@ -293,8 +284,13 @@ else
   #nav-bar
     display none !important
 
+#urlbar-container
+#search-container
+.searchbar-textbox
+  padding 0 !important
+
 #urlbar
-#searchbar.searchbar-textbox
+#searchbar
   border-radius 0 !important
   border none !important
   background none !important
@@ -302,12 +298,28 @@ else
   margin 0 !important
   min-height unset !important
 
-#urlbar .urlbar-go-button
-#searchbar .search-go-button
+#urlbar-go-button
+#search-go-button
   display none !important
 
-/* FIXME: Works in style editor. */
-.textbox-input::-moz-selection
+#urlbar-results
+.urlbarView-results
+  padding-block 0 !important
+  padding-inline 0 !important
+  background bar-background !important
+
+.urlbarView-row
+  border-radius 0 !important
+  padding 0 !important
+
+.urlbarView-type-icon
+.urlbarView-favicon
+  min-width 16px !important
+  height 16px !important
+  // HACK: Find out how it can be vertical aligned.
+  margin-bottom 1px !important
+
+moz-input-box *::selection
   background selection-background !important
   color selection-color !important
 
