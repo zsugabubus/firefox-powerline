@@ -40,6 +40,12 @@ if !show-tab-throbber
   counter-reset index
   background tabs-toolbar-background-color
 
+  .tabbrowser-arrowscrollbox:not([scrolledtostart=true])
+  .tabbrowser-arrowscrollbox:not([scrolledtoend=true])
+    tab.tabbrowser-tab
+      > .tab-stack::after
+        width 1px !important
+
   tab.tabbrowser-tab
     color tab-color !important
     font-size font-size !important
@@ -58,13 +64,18 @@ if !show-tab-throbber
           width 100%
           bottom 0
 
+        &::before
+          display inline-block !important
+          transform translate(0, -.5px)
+
       &::after
         content '' if triangular-theme
-        display block
+        display inline-block
         position absolute
         top 0
         right 0
-        transform translate(100%, 0)
+        width 0
+        transform translate(0, -.5px)
 
     &::after
       border 0 !important
@@ -81,9 +92,6 @@ if !show-tab-throbber
     &:not([selected]):not([multiselected])
       .tab-background
         background tab-background !important
-
-        &::before
-          display inline-block
 
       > .tab-stack::after
         color tab-background !important
@@ -121,10 +129,6 @@ if !show-tab-throbber
     &:nth-child(-n+9) .tab-label::before
       counter-increment index
       content counter(index) ':'
-
-  /*tab.tabbrowser-tab[pinned=true]
-    > .tab-stack::after
-      right 1px*/
 
 #alltabs-button
   > .toolbarbutton-badge-stack
@@ -288,6 +292,10 @@ else
 #search-container
 .searchbar-textbox
   padding 0 !important
+  margin 0 !important
+
+#urlbar-input-container
+  border-radius 0 !important
 
 #urlbar
 #searchbar
@@ -317,10 +325,8 @@ else
 
 .urlbarView-type-icon
 .urlbarView-favicon
-  min-width 16px !important
-  height 16px !important
-  // HACK: Find out how it can be vertical aligned.
-  margin-bottom 1px !important
+  /* TODO: Find out how it can be vertical aligned. */
+  margin 0 .25ch 1px 0 !important
 
 moz-input-box *::selection
   background selection-background !important
@@ -340,7 +346,7 @@ moz-input-box *::selection
     color tab-selected-background !important
     content '' if triangular-theme
     line-height 0
-    transform translate(100%, 0)
+    transform translate(100%, -.5px)
     right 0
 
   &:hover:not(.no-hover):not([open="true"])
