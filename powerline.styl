@@ -75,7 +75,8 @@ if !show-tab-throbber
         top 0
         right 0
         width 0
-        transform translate(0, -.5px)
+        font-size "calc(%s + 2px)" % font-size
+        transform translate(0, -1.5px)
 
     &::after
       border 0 !important
@@ -161,7 +162,7 @@ else
 .private-browsing-indicator
   width 1em !important
   height 1em !important
-  margin 0 3px !important
+  margin 0 2pt !important
 
 .toolbarbutton-1
   background none !important
@@ -258,8 +259,8 @@ else
 
 .urlbar-icon
 .urlbar-icon-wrapper
-  width 16px !important
-  height 16px !important
+  width font-size !important
+  height font-size !important
   padding 0 !important
 
   &:not([disabled]):hover
@@ -270,6 +271,11 @@ if show-nav-bar
     box-shadow none !important
     min-height unset !important
     background-color bar-background !important
+    font-size font-size !important
+
+    image[role=button]
+      width font-size !important;
+      height font-size !important;
 
   #nav-bar-overflow-button
     position relative
@@ -277,12 +283,6 @@ if show-nav-bar
     &::after
       content '>'
       position absolute
-
-    > .toolbarbutton-icon
-      position absolute !important
-      opacity 0
-      width 1.2em !important
-      height 1em !important
 
 else
   #nav-bar
@@ -355,7 +355,7 @@ moz-input-box *::selection
 #star-button
   width font-size !important
   height font-size !important
-  padding 1px !important
+  padding 0 !important
 
   &[starred]
     fill star-color !important
