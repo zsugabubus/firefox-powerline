@@ -1,29 +1,29 @@
 :root
-  --autocomplete-popup-highlight-color selection-color !important
-  --autocomplete-popup-highlight-background selection-background !important
+	--autocomplete-popup-highlight-color selection-color !important
+	--autocomplete-popup-highlight-background selection-background !important
 
-/* disable crappy W1nd0w$ buttons in fullscreen mode */
+/* Disable crappy W1nd0w$ buttons in fullscreen mode. */
 #window-controls
-  display none
+	display none
 
 :root
-  font-family font-family !important
+	font-family font-family !important
 
 .tab-label-container
-  mask-image linear-gradient(to left, transparent, black 1em) !important
+	mask-image linear-gradient(to left, transparent, black 1em) !important
 
 .tab-close-button
 .tab-line
-  display none !important
+	display none !important
 
 #tabbrowser-tabs
 .tabbrowser-arrowscrollbox
 .tabbrowser-tab
-  min-height unset !important
+	min-height unset !important
 
 if !show-tab-throbber
-  .tab-throbber
-    display none !important
+	.tab-throbber
+		display none !important
 
 .tab-throbber
 .tab-icon-pending
@@ -31,340 +31,344 @@ if !show-tab-throbber
 .tab-sharing-icon-overlay
 .tab-icon-sound
 .tab-close-button
-  margin 0 !important
+	margin 0 !important
 
 #TabsToolbar
-  counter-reset index
-  background tabs-toolbar-background-color
+	counter-reset index
+	background tabs-toolbar-background-color
 
-  .tabbrowser-arrowscrollbox:not([scrolledtostart=true])
-  .tabbrowser-arrowscrollbox:not([scrolledtoend=true])
-    tab.tabbrowser-tab
-      > .tab-stack::after
-        width 1px !important
+	.tabbrowser-arrowscrollbox:not([scrolledtostart=true])
+	.tabbrowser-arrowscrollbox:not([scrolledtoend=true])
+		tab.tabbrowser-tab
+			> .tab-stack::after
+				width 1px !important
 
-  tab.tabbrowser-tab
-    color tab-color !important
-    font-size font-size !important
-    /* needed for pinned tabs */
-    min-hegiht unset !important
-    transition none !important
+	tab.tabbrowser-tab
+		color tab-color !important
+		font-size font-size !important
+		/* needed for pinned tabs */
+		min-hegiht unset !important
+		transition none !important
 
-    > .tab-stack
-      position relative
+		> .tab-stack
+			position relative
 
-      > .tab-background
-        border-top 0 !important
+			> .tab-background
+				border-top 0 !important
 
-        > .tab-bottom-line
-          position absolute
-          width 100%
-          bottom 0
+				> .tab-bottom-line
+					position absolute
+					width 100%
+					bottom 0
 
-        &::before
-          display inline-block !important
-          transform translate(0, -.5px)
+				&::before
+					display inline-block !important
+					transform translate(0, -.5px)
 
-      &::after
-        content '' if triangular-theme
-        display inline-block
-        position absolute
-        top 0
-        right 0
-        width 0
-        font-size "calc(%s + 2px)" % font-size
-        transform translate(0, -1.5px)
+			&::after
+				content '' if triangular-theme
+				display inline-block
+				position absolute
+				top 0
+				right 0
+				width 0
+				font-size "calc(%s + 2px)" % font-size
+				transform translate(0, -1.5px)
 
-    &::after
-      border 0 !important
-      margin 0 !important
+		&::after
+			border 0 !important
+			margin 0 !important
 
-    .tab-content
-      padding 0 1ch !important
-      margin-left 1ch !important if triangular-theme
+		.tab-content
+			padding 0 1ch !important
+			margin-left 1ch !important if triangular-theme
 
-    .tab-label
-      line-height unset !important
-      padding-left .5ch
+		.tab-label
+			line-height unset !important
+			padding-left .5ch
 
-    &:not([selected]):not([multiselected])
-      .tab-background
-        background tab-background !important
+		&:not([selected]):not([multiselected])
+			.tab-background
+				background tab-background !important
 
-      > .tab-stack::after
-        color tab-background !important
+			> .tab-stack::after
+				color tab-background !important
 
-      &:nth-child(-n+9) .tab-label::before
-        color tab-number-color
+			&:nth-child(-n+9) .tab-label::before
+				color tab-number-color
 
-      ../:not([selected]) +
-        & ^[1..-3][selected]
-        & ^[1..-3][multiselected]
-          .tab-background::before
-            content '' if triangular-theme
-            color tab-background !important
+			../:not([selected]) +
+				& ^[1..-3][selected]
+				& ^[1..-3][multiselected]
+					.tab-background::before
+						content '' if triangular-theme
+						color tab-background !important
 
-      & + ^[1..-2]:not([selected]):not([multiselected]) .tab-background::before
-        content '' if triangular-theme
+			& + ^[1..-2]:not([selected]):not([multiselected]) .tab-background::before
+				content '' if triangular-theme
 
-    &[selected]
-    &[multiselected]
-      color tab-selected-color !important
+		&[selected]
+		&[multiselected]
+			color tab-selected-color !important
 
-      .tab-background
-        background tab-selected-background !important
+			.tab-background
+				background tab-selected-background !important
 
-      > .tab-stack::after
-        color tab-selected-background !important
+			> .tab-stack::after
+				color tab-selected-background !important
 
-      &:nth-child(-n+9) .tab-label::before
-        color tab-number-selected-color
+			.tab-background:-moz-window-inactive
+				background tab-inactive-background !important
 
-      & + ^[1..-2][multiselected] .tab-background::before
-        content '' if triangular-theme
-        color tab-selected-color !important
+			> .tab-stack:-moz-window-inactive::after
+				color tab-inactive-background !important
 
-    &:nth-child(-n+9) .tab-label::before
-      counter-increment index
-      content counter(index) ':'
+			&:nth-child(-n+9) .tab-label::before
+				color tab-number-selected-color
+
+			& + ^[1..-2][multiselected] .tab-background::before
+				content '' if triangular-theme
+				color tab-selected-color !important
+
+		&:nth-child(-n+9) .tab-label::before
+			counter-increment index
+			content counter(index) ':'
 
 #alltabs-button
-  > .toolbarbutton-badge-stack
-    > .toolbarbutton-icon
-      fill tab-selected-background
+	> .toolbarbutton-badge-stack
+		> .toolbarbutton-icon
+			fill tab-selected-background
 
 if show-newtab-button
-  #new-tab-button
-  .tabs-newtab-button
-    -moz-box-align start !important
-    position absolute !important
-    display block !important
-    color tab-selected-background !important
-    background none !important
-    font-weight bold
+	#new-tab-button
+	.tabs-newtab-button
+		-moz-box-align start !important
+		position absolute !important
+		display block !important
+		color tab-selected-background !important
+		background none !important
+		font-weight bold
 
-    > .toolbarbutton-icon
-      display none
+		> .toolbarbutton-icon
+			display none
 
-    &::before
-      padding 0 1ch
-      content '+'
-      display block !important
+		&::before
+			padding 0 1ch
+			content '+'
+			display block !important
 else
-  #new-tab-button
-  .tabs-newtab-button
-    display none !important
+	#new-tab-button
+	.tabs-newtab-button
+		display none !important
 
 .accessibility-indicator
 .private-browsing-indicator
-  width 1em !important
-  height 1em !important
-  margin 0 2pt !important
+	width 1em !important
+	height 1em !important
+	margin 0 2pt !important
 
 .toolbarbutton-1
-  background none !important
-  border-radius 0 !important
-  margin 0 !important
+	background none !important
+	border-radius 0 !important
+	margin 0 !important
 
-  > .toolbarbutton-icon
-    display none !important
+	> .toolbarbutton-icon
+		display none !important
 
 toolbarbutton
-  &:active
-  &:hover
-    > .toolbarbutton-badge-stack
-      background none !important
+	&:active
+	&:hover
+		> .toolbarbutton-badge-stack
+			background none !important
 
 .tabbrowser-arrowscrollbox
-  > .arrowscrollbox-overflow-start-indicator
-  > .arrowscrollbox-overflow-end-indicator
-    display none !important
+	> .arrowscrollbox-overflow-start-indicator
+	> .arrowscrollbox-overflow-end-indicator
+		display none !important
 
-  > .scrollbutton-up
-  > .scrollbutton-down
-    background tab-background !important
-    margin 0 !important
+	> .scrollbutton-up
+	> .scrollbutton-down
+		background tab-background !important
+		margin 0 !important
 
-    > .toolbarbutton-icon
-      display none !important
+		> .toolbarbutton-icon
+			display none !important
 
-    &::before
-      color tab-color !important
-      display block !important
+		&::before
+			color tab-color !important
+			display block !important
 
-    /* &[disabled]
-      display none !important */
+		/* &[disabled]
+			display none !important */
 
-  > .scrollbutton-up::before
-    content scroll-up-label
+	> .scrollbutton-up::before
+		content scroll-up-label
 
-  > .scrollbutton-down::before
-    content scroll-down-label
+	> .scrollbutton-down::before
+		content scroll-down-label
 
 #userContext-label
-  margin-top 0 !important
-  margin-bottom 0 !important
+	margin-top 0 !important
+	margin-bottom 0 !important
 
 .urlbar-input-box
-  padding-left 1ch if triangular-theme
+	padding-left 1ch if triangular-theme
 
 #tracking-protection-icon-container
-  display none !important
+	display none !important
 
 #stop-reload-button
-  display none !important
+	display none !important
 
 #back-button
 #forward-button
 #home-button
 #library-button
 #sidebar-button
-  > .toolbarbutton-icon
-    display none !important
+	> .toolbarbutton-icon
+		display none !important
 
-  &::after
-    white-space pre
+	&::after
+		white-space pre
 
 if show-history-buttons
-  #back-button::after
-    content back-button-label
+	#back-button::after
+		content back-button-label
 
-  #forward-button::after
-    content forward-button-label
+	#forward-button::after
+		content forward-button-label
 
-  #backForwardMenu
-    counter-reset history_number
+	#backForwardMenu
+		counter-reset history_number
 
-    > menuitem::after
-      counter-increment history_number
-      content '[' counter(history_number) ']'
-      position absolute
+		> menuitem::after
+			counter-increment history_number
+			content '[' counter(history_number) ']'
+			position absolute
 else
-  #back-button
-  #forward-button
-    display none
+	#back-button
+	#forward-button
+		display none
 
 .urlbar-history-dropmarker
 #pageActionButton
 #pageActionSeparator
 #reader-mode-button
 #PanelUI-button
-  display none !important
+	display none !important
 
 .toolbarbutton-badge-stack
-  padding 0 !important
+	padding 0 !important
 
 .urlbar-icon
 .urlbar-icon-wrapper
-  width font-size !important
-  height font-size !important
-  padding 0 !important
+	width font-size !important
+	height font-size !important
+	padding 0 !important
 
-  &:not([disabled]):hover
-    background none !important
+	&:not([disabled]):hover
+		background none !important
 
 if show-nav-bar
-  #nav-bar
-    box-shadow none !important
-    min-height unset !important
-    background-color bar-background !important
-    font-size font-size !important
+	#nav-bar
+		box-shadow none !important
+		min-height unset !important
+		background-color bar-background !important
+		font-size font-size !important
 
-    image[role=button]
-      width font-size !important;
-      height font-size !important;
+		image[role=button]
+			width font-size !important;
+			height font-size !important;
 
-  #nav-bar-overflow-button
-    position relative
+	#nav-bar-overflow-button
+		position relative
 
-    &::after
-      content '>'
-      position absolute
+		&::after
+			content '>'
+			position absolute
 
 else
-  #nav-bar
-    display none !important
+	#nav-bar
+		display none !important
 
 #urlbar-container
 #search-container
 .searchbar-textbox
-  padding 0 !important
-  margin 0 !important
+	padding 0 !important
+	margin 0 !important
 
 #urlbar-input-container
-  border-radius 0 !important
+	border-radius 0 !important
 
 #urlbar
 #searchbar
-  border-radius 0 !important
-  border none !important
-  background none !important
-  box-shadow none !important
-  margin 0 !important
-  min-height unset !important
+	border-radius 0 !important
+	border none !important
+	background none !important
+	box-shadow none !important
+	margin 0 !important
+	min-height unset !important
 
 #urlbar-go-button
 #search-go-button
-  display none !important
+	display none !important
 
 .urlbarView
-  box-shadow none !important;
+	box-shadow none !important;
 
 #urlbar-results
 .urlbarView-results
-  padding-block 0 !important
-  padding-inline 0 !important
-  background bar-background !important
+	padding-block 0 !important
+	padding-inline 0 !important
+	background bar-background !important
 
 .urlbarView-row
-  border-radius 0 !important
-  padding 0 !important
+	border-radius 0 !important
+	padding 0 !important
 
 .urlbarView-type-icon
 .urlbarView-favicon
-  /* TODO: Find out how it can be vertical aligned. */
-  margin 0 .25ch 1px 0 !important
+	/* TODO: Find out how it can be vertical aligned. */
+	margin 0 .25ch 1px 0 !important
 
 moz-input-box *::selection
-  background selection-background !important
-  color selection-color !important
+	background selection-background !important
+	color selection-color !important
 
 #identity-box
-  border-right 0
-  padding 0
-  position relative
-  overflow visible !important
-  margin 0 !important
-  background tab-selected-background !important
+	border-right 0
+	padding 0
+	position relative
+	overflow visible !important
+	margin 0 !important
+	background bar-badge-background !important
 
-  &::after
-    position absolute
-    display block
-    color tab-selected-background !important
-    content '' if triangular-theme
-    line-height 0
-    transform translate(100%, -.5px)
-    right 0
+	&::after
+		position absolute
+		display block
+		color bar-badge-background !important
+		content '' if triangular-theme
+		line-height 0
+		transform translate(100%, -.5px)
+		right 0
 
-  &:hover:not(.no-hover):not([open="true"])
-    background-color blue
+	&:hover:not(.no-hover):not([open="true"])
+		background-color blue
 
 #star-button
-  width font-size !important
-  height font-size !important
-  padding 0 !important
+	width font-size !important
+	height font-size !important
+	padding 0 !important
 
-  &[starred]
-    fill star-color !important
+	&[starred]
+		fill star-color !important
 
 #downloads-button[attention="success"]
-  > #downloads-indicator-anchor
-    > #downloads-indicator-icon
-    > #downloads-indicator-progress-outer
-      fill downloads-color !important
+	> #downloads-indicator-anchor
+		> #downloads-indicator-icon
+		> #downloads-indicator-progress-outer
+			fill downloads-color !important
 
 #statuspanel-label
-  background statuslabel-background !important
-  color statuslabel-color !important
-
-/* vim:set ts=2 sw=2 et fdm=marker: */
+	background statuslabel-background !important
+	color statuslabel-color !important
