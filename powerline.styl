@@ -17,7 +17,7 @@
 	display none !important
 
 #tabbrowser-tabs
-.tabbrowser-arrowscrollbox
+#tabbrowser-arrowscrollbox
 .tabbrowser-tab
 	min-height unset !important
 
@@ -299,6 +299,10 @@ else
 
 #urlbar-input-container
 	border-radius 0 !important
+	border none !important
+	padding-inline 0 !important
+	padding-block 0 !important
+	height var(--urlbar-height) !important
 
 #urlbar
 #searchbar
@@ -330,6 +334,35 @@ else
 .urlbarView-favicon
 	/* TODO: Find out how it can be vertical aligned. */
 	margin 0 .25ch 1px 0 !important
+
+.urlbarView-body-inner
+	border-top none !important
+
+#urlbar-background
+	background tabs-toolbar-background-color !important
+	border-radius 0 !important
+	box-shadow none !important
+	border none !important
+
+#urlbar[breakout][breakout-extend]
+	top 0 !important
+	left 0 !important
+	width 100% !important
+
+	> #urlbar-background
+		animation none !important
+
+/* FIXME */
+/* NOTE: Fucked browser toolbar does not fucking show up so this is why this
+ * workaround. */
+.urlbarView-row > *
+	margin 0 !important
+	padding 0 !important
+
+/* FIXME */
+#urlbar-container > * > *
+	margin 0 !important
+	width 100% !important
 
 moz-input-box *::selection
 	background selection-background !important
