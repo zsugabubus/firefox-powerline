@@ -1,0 +1,4 @@
+/* 1. Copy powerline and powerline.css into your chrome directory.
+ * 2. Add the contents of this file to your userChrome.css (or simply rename
+ *    powerline.css -> userChrome.css). */
+@import url(powerline.css);
