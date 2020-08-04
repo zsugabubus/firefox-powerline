@@ -1,0 +1,20 @@
+:root {
+	font-family: monospace !important;
+	font-size: 10pt !important;
+	--star-color: #fc6d1b;
+	--downloads-color: #14be4e;
+	--tab-color: #6c6c6c;
+	--tab-background: #e4e4e4;
+	--tab-selected-color: #1b1d2f;
+	--tab-selected-background: #ffaf5f;
+	--tab-inactive-background: #dadada;
+	--tab-number-color: #5e5e5f;
+	--tab-number-selected-color: #1e1e1f;
+	--statuslabel-color: var(--tab-selected-color);
+	--statuslabel-background: var(--tab-selected-background);
+	--selection-color: #eeeeee;
+	--selection-background: #0087af;
+	--tabs-toolbar-background-color: #eeeeee;
+	--bar-background: #eeeeee;
+	--bar-badge-background: #e4e4e4;
+}
