@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url(powerline/colors/light.css);
+@import url(colors/light.css);
 
 :root {
   --autocomplete-popup-highlight-color: var(--selection-color) !important;
