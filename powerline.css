@@ -339,7 +339,15 @@ toolbarbutton:hover > .toolbarbutton-badge-stack {
 	display: none !important;
 }
 
+#navigator-toolbox {
+	border-bottom: none !important; /* save 1px */
+}
+
 .urlbarView {
+	margin: 0 !important;
+	padding: 0 !important;
+	border: none !important;
+	width: 100% !important;
 	box-shadow: none !important;
 }
 
@@ -359,7 +367,7 @@ toolbarbutton:hover > .toolbarbutton-badge-stack {
 
 .urlbarView-type-icon,
 .urlbarView-favicon {
-/* TODO: Find out how it can be vertical aligned. */
+	/* TODO: Find out how it can be vertically aligned. */
 	margin: 0 0.25ch 1px 0 !important;
 }
 
@@ -382,11 +390,6 @@ toolbarbutton:hover > .toolbarbutton-badge-stack {
 
 #urlbar[breakout][breakout-extend] > #urlbar-background {
 	animation: none !important;
-}
-
-#urlbar-container > * > * {
-	margin: 0 !important;
-	width: 100% !important;
 }
 
 moz-input-box *::selection {
