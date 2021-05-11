@@ -339,6 +339,11 @@ toolbarbutton:hover > .toolbarbutton-badge-stack {
 	display: none !important;
 }
 
+/* "This time search with". */
+#urlbar .search-one-offs:not([hidden]) {
+	display: none !important;
+}
+
 #navigator-toolbox {
 	border-bottom: none !important; /* save 1px */
 }
@@ -413,6 +418,7 @@ moz-input-box *::selection {
 	content: '';
 	line-height: 0;
 	transform: translate(100%, -0.5px);
+	top: 50%;
 	right: 0;
 }
 
