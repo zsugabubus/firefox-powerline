@@ -4,6 +4,11 @@
 :root {
 	--autocomplete-popup-highlight-color: var(--selection-color) !important;
 	--autocomplete-popup-highlight-background: var(--selection-background) !important;
+	--tab-border-radius: 0 !important;
+	--tab-shadow-max-size: 0 !important;
+	--proton-tab-block-margin: 0 !important;
+	--inline-tab-padding: 0 !important;
+	--tab-min-height: 0 !important;
 }
 
 #window-controls {
@@ -47,12 +52,18 @@
 	width: 1px !important;
 }
 
+#scrollbutton-up,
+#scrollbutton-down {
+	display: none !important;
+}
+
 #TabsToolbar tab.tabbrowser-tab {
 	color: var(--tab-color) !important;
 	font-size: 1rem !important;
 	/* needed for pinned tabs */
 	min-height: unset !important;
 	transition: none !important;
+	padding: 0 !important;
 }
 
 #TabsToolbar tab.tabbrowser-tab > .tab-stack {
@@ -61,6 +72,7 @@
 
 #TabsToolbar tab.tabbrowser-tab > .tab-stack > .tab-background {
 	border-top: 0 !important;
+	box-shadow: none !important;
 }
 
 #TabsToolbar tab.tabbrowser-tab > .tab-stack > .tab-background > .tab-bottom-line {
@@ -71,7 +83,7 @@
 
 #TabsToolbar tab.tabbrowser-tab > .tab-stack > .tab-background::before {
 	display: inline-block !important;
-	transform: translate(0, -0.5px);
+	transform: translate(0, -1.5px);
 }
 
 #TabsToolbar tab.tabbrowser-tab > .tab-stack::after {
@@ -81,7 +93,7 @@
 	top: 0;
 	right: 0;
 	width: 0;
-	font-size: calc(1rem + 2px);
+	font-size: calc(1rem + 1px);
 	transform: translate(0, -1.5px);
 }
 
@@ -91,13 +103,13 @@
 }
 
 #TabsToolbar tab.tabbrowser-tab .tab-content {
-	padding: 0 1ch !important;
-	margin-left: 1ch !important;
+	padding: 0 .8ch !important;
+	margin-left: .8ch !important;
 }
 
 #TabsToolbar tab.tabbrowser-tab .tab-label {
 	line-height: unset !important;
-	padding-left: 0.5ch;
+	padding-left: 0.4ch;
 }
 
 #TabsToolbar tab.tabbrowser-tab:not([selected]):not([multiselected]) .tab-background {
@@ -424,6 +436,10 @@ moz-input-box *::selection {
 
 #identity-box:hover:not(.no-hover):not([open="true"]) {
 	background-color: #00f;
+}
+
+#identity-icon-box {
+	background: transparent !important;
 }
 
 #star-button {
