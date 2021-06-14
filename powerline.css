@@ -33,12 +33,13 @@
 	display: none !important;
 }
 
-.tab-throbber,
-.tab-icon-pending,
+.tab-close-button,
 .tab-icon-image,
-.tab-sharing-icon-overlay,
+.tab-icon-overlay,
+.tab-icon-pending,
 .tab-icon-sound,
-.tab-close-button {
+.tab-sharing-icon-overlay,
+.tab-throbber {
 	margin: 0 !important;
 }
 
